@@ -1,0 +1,45 @@
+
+.body{
+
+    background-color: rgb(253, 253, 181);
+    
+}
+
+.container {
+    padding-bottom: 2%;
+    margin: 0;
+    background-color: brown;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.267); 
+  }
+  
+  .container::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-right: 200px solid transparent; 
+    border-bottom: 400px solid royalblue; 
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+  }
+  
+  .container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 200px solid transparent; 
+    border-bottom: 400px solid royalblue; 
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+  }
+  
+  .search {
+    margin-top: -35px;
+  }
+  

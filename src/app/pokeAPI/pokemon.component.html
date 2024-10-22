@@ -1,0 +1,42 @@
+<div class="card-container">
+  <div class="card" *ngFor="let pokemon of displayedPokemons" 
+       [ngStyle]="{
+         '--pokemon-color': pokemon.colorHex,
+         '--pokemon-color-light': pokemon.colorHexLight
+       }">
+    <div class="content">
+      <div class="top">
+        <p>{{ pokemon.name | titlecase }}</p>
+        <div class="color"></div>
+      </div>
+      <div class="middle">
+        <div>
+          <p>#{{ pokemon.id }}</p>
+          <p>{{ pokemon.types.join(', ') | titlecase }}</p>
+        </div>
+        <img class="poke-img" [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}">
+      </div>
+      <div class="bottom">
+        <div>
+          <p>Altura</p>
+          <p>{{ pokemon.height }}</p>
+        </div>
+        <div>
+          <p>Peso</p>
+          <p>{{ pokemon.weight }}</p>
+        </div>
+        <div>
+          <p>Exp Base</p>
+          <p>{{ pokemon.base_experience }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-paginator 
+  [currentPage]="currentPage" 
+  [totalItems]="filteredPokemons.length" 
+  [itemsPerPage]="itemsPerPage" 
+  (pageChanged)="onPageChange($event)">
+</app-paginator>

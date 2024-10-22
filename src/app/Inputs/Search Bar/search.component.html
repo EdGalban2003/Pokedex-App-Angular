@@ -1,0 +1,23 @@
+
+<div class="container">
+  <form class="search-container" (ngSubmit)="onSearch()">
+    <p>Buscar P</p>
+    <input class="input" 
+      placeholder="Ingresa un Nombre"
+      id="poke-search"
+      [(ngModel)]="searchQuery"
+      (input)="filterOptions()"
+      name="search"
+      list="pokemon-options"
+    />
+    <img
+      src="https://raw.githubusercontent.com/replyre/poke-info/main/search.png"
+      alt="search icon"
+      (click)="toggleSearch()"
+    />
+    <p>kémon</p>
+    <datalist id="pokemon-options">
+      <option *ngFor="let option of filteredOptions" [value]="option"></option>
+    </datalist>
+  </form>
+</div>
